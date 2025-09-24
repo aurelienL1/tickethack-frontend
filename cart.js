@@ -30,6 +30,16 @@ getCart().then(async (data) => {
           <button class="purchase-button" type="button" id="purchase">Purchase</button>
         </div>`;
       await updateDeleteTripEventListener(trips);
+      document.querySelector("#purchase").addEventListener("click", async function () {
+        console.log("fer");
+        const response = await fetch(`http://localhost:3000/cart/purchase`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ cart: { trips } }),
+        });
+        const data = await response.json();
+        window.location.href = "bookings.html";
+      });
     }
   }
 });

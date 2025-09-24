@@ -23,15 +23,32 @@ document.querySelector("#search").addEventListener("click", async function () {
 
       for (const trip of trips) {
         const { departure, arrival, date, price } = trip;
+        const dateTemp = new Date(date);
+        const minutes = dateTemp.getMinutes();
+        const hour = dateTemp.getHours();
         document.querySelector(".list-trip").innerHTML += `<div id="results">
             <div class="trip">
               <div id="travel">${departure} > ${arrival}</div>
-              <div id="hour">${date}</div>
+              <div id="hour">${hour}:${minutes}</div>
               <div id="price">${price}€</div>
               <button class="book-button" type="button" id="book">Book</button>
             </div>
           </div>
         `;
+      }
+
+      const bookButtons = document.querySelectorAll("#book");
+      for (let i = 0; i < bookButtons.length; i++) {
+        bookButtons[i].addEventListener("click", async function () {
+          console.log("click");
+          const response = await fetch(`http://localhost:3000/addtocart`, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ trip: trips[i] }),
+          });
+          const data = await response.json();
+          window.location.href = "cart.html";
+        });
       }
     }
   } catch (error) {}
