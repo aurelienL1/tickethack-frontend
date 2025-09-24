@@ -48,9 +48,25 @@ body {
   font-weight: 400;
   border-top-left-radius: 0.375rem;
   border-top-right-radius: 0.375rem;
+  gap: 10px;
+  padding: 10px;
 }
 
 #cart-container > h4 {
   color: black;
   font-weight: 200;
+}
+
+.travel{
+  display: flex;
+  height: 100%;
+  min-width: 80%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(246, 209, 146);
+  font-weight: 400;
+  border-top-left-radius: 0.375rem;
+  border-top-right-radius: 0.375rem;
+  padding: 5px;
 }
