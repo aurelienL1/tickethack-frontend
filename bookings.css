@@ -50,7 +50,33 @@ body {
   border-top-right-radius: 0.375rem;
 }
 
+#no-booking {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  width: 70%;
+  font-weight: 400;
+  border-top-left-radius: 0.375rem;
+  border-top-right-radius: 0.375rem;
+}
+
+
 #booking-container > h4 {
   color: black;
   font-weight: 200;
+}
+
+.booking {
+  display: flex;
+  height: 100%;
+  min-width: 80%;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f5eeee;
+  font-weight: 400;
+  border-radius: 0.375rem;
+  padding: 5px;
 }
